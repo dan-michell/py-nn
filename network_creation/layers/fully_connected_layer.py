@@ -12,7 +12,6 @@ class FCLayer(Layer):
 
     def forward_propagation(self, input_data):
         self.input = input_data
-        print(f"INPUIT: {self.input} {type(self.input)}, WEIGHTS: {self.weights} {type(self.weights)}")
         self.output = np.dot(self.input, self.weights) + self.bias
         return self.output
     
