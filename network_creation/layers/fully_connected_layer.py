@@ -8,10 +8,11 @@ class FCLayer(Layer):
     def __init__(self, input_size, output_size):
         # Assign random weights and bias based on the layer size
         self.weights = np.random.rand(input_size, output_size) - 0.5
-        self.bias = np.random.rand(input_size, output_size) - 0.5
+        self.bias = np.random.rand(1, output_size) - 0.5
 
     def forward_propagation(self, input_data):
         self.input = input_data
+        print(f"INPUIT: {self.input} {type(self.input)}, WEIGHTS: {self.weights} {type(self.weights)}")
         self.output = np.dot(self.input, self.weights) + self.bias
         return self.output
     
@@ -25,3 +26,4 @@ class FCLayer(Layer):
         self.bias -= learning_rate * output_error
         return input_error
 
+# INPUTS COMING IN AS UFUNC
